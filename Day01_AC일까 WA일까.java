@@ -25,23 +25,23 @@ public class main{
 //        String str2 = st.nextToken();
 //        String str3 = st.nextToken();
         
-        int N = Integer.parseInt(br.readLine());
+        String str = br.readLine();
         
-        int[] loc = new int[11];
-        for (int i = 0; i < 11; i++) {
-        	loc[i] = -1;
+        boolean flag = true;
+        if (str.charAt(0) != 'A') flag = false;
+        if (!(('a' <= str.charAt(1)) && (str.charAt(1) <= 'z'))) flag = false;
+        
+        boolean existC = false;
+        for(int i = 2; i < str.length() - 1; i++) {
+        	if(str.charAt(i) == 'C') existC = true;
+        	else if (!(('a' <= str.charAt(i)) && (str.charAt(i) <= 'z'))) flag = false;
         }
         
-        int ans = 0;
-        while (N-- > 0) {
-        	st = new StringTokenizer(br.readLine());
-            int cownum = Integer.parseInt(st.nextToken());
-            int cowloc = Integer.parseInt(st.nextToken());
-            if ((loc[cownum] != -1) && (loc[cownum] != cowloc)) {
-            	ans++;
-            }
-            loc[cownum] = cowloc;
-        }
-        System.out.println(ans);
+        if (!(('a' <= str.charAt(str.length() - 1)) && (str.charAt(str.length() - 1) <= 'z'))) flag = false;
+        
+        if (flag && existC) System.out.print("AC");
+        else System.out.print("WA");
+
+        
     }
 }

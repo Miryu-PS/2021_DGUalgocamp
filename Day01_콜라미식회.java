@@ -25,23 +25,27 @@ public class main{
 //        String str2 = st.nextToken();
 //        String str3 = st.nextToken();
         
-        int N = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+      	int M = Integer.parseInt(st.nextToken());
+      	
+      	int[] arr = new int[M + 1];
+      	for (int i = 1; i <= M; i++) arr[i] = 0;
+      	
+      	for (int i = 0; i < N; i++) {
+      		st = new StringTokenizer(br.readLine());
+      		int K = Integer.parseInt(st.nextToken());
+      		while (K-- > 0) {
+      			arr[Integer.parseInt(st.nextToken())]++; 
+      		}
+      	}
+      	
+      	int ans = 0;
+      	for (int i = 1; i <= M; i++) {
+      		if (arr[i] == N) ans++;
+      	}
+      	System.out.print(ans);
+
         
-        int[] loc = new int[11];
-        for (int i = 0; i < 11; i++) {
-        	loc[i] = -1;
-        }
-        
-        int ans = 0;
-        while (N-- > 0) {
-        	st = new StringTokenizer(br.readLine());
-            int cownum = Integer.parseInt(st.nextToken());
-            int cowloc = Integer.parseInt(st.nextToken());
-            if ((loc[cownum] != -1) && (loc[cownum] != cowloc)) {
-            	ans++;
-            }
-            loc[cownum] = cowloc;
-        }
-        System.out.println(ans);
     }
 }

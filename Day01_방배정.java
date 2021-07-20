@@ -26,48 +26,37 @@ public class main{
 //        String str3 = st.nextToken();
         
         st = new StringTokenizer(br.readLine());
-        int A = Integer.parseInt(st.nextToken());
-        int B = Integer.parseInt(st.nextToken());
-        int C = Integer.parseInt(st.nextToken());
-
-        int[] cars = new int[100];
-        for (int i = 0; i < 100; i++) {
-        	cars[i] = 0;
+        int N = Integer.parseInt(st.nextToken());
+        int K = Integer.parseInt(st.nextToken());
+        
+        int[] arr = new int[5];
+        for(int i = 0; i < 5; i++) {
+        	arr[i] = 0;
         }
         
-        st = new StringTokenizer(br.readLine());
-        int t1 = Integer.parseInt(st.nextToken());
-        int t2 = Integer.parseInt(st.nextToken());
-        for (int i = t1; i < t2; i++) {
-        	cars[i]++;
-        }
-        st = new StringTokenizer(br.readLine());
-        t1 = Integer.parseInt(st.nextToken());
-        t2 = Integer.parseInt(st.nextToken());
-        for (int i = t1; i < t2; i++) {
-        	cars[i]++;
-        }
-        st = new StringTokenizer(br.readLine());
-        t1 = Integer.parseInt(st.nextToken());
-        t2 = Integer.parseInt(st.nextToken());
-        for (int i = t1; i < t2; i++) {
-        	cars[i]++;
+        while (N-- > 0) {
+        	st = new StringTokenizer(br.readLine());
+            int S = Integer.parseInt(st.nextToken());
+            int Y = Integer.parseInt(st.nextToken());
+            
+            if ((Y == 1) || (Y == 2)) arr[0]++;
+            else if ((Y == 3) || (Y == 4)) {
+            	if (S == 1) arr[1]++;
+            	else arr[2]++;
+            }
+            else {
+            	if (S == 1) arr[3]++;
+            	else arr[4]++;
+            }
         }
         
         int ans = 0;
-        for (int i = 0; i < 100; i++) {
-        	switch(cars[i]) {
-        	case 1:
-        		ans += A;
-        		break;
-        	case 2:
-        		ans += 2 * B;
-        		break;
-        	case 3:
-        		ans += 3 * C;
-        		break;
-        	}
+        for (int i = 0; i < 5; i++) {
+            	ans += (arr[i] + K - 1) / K;
         }
+        
+        
+
         System.out.println(ans);
     }
 }

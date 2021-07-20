@@ -25,25 +25,48 @@ public class main{
 //        String str2 = st.nextToken();
 //        String str3 = st.nextToken();
         
-        st = new StringTokenizer(br.readLine());
-        int a = Integer.parseInt(st.nextToken()), b = Integer.parseInt(st.nextToken());
-        st = new StringTokenizer(br.readLine());
-        int c = Integer.parseInt(st.nextToken()), d = Integer.parseInt(st.nextToken());
+        String str = br.readLine();
         
-        boolean[] x = new boolean[100];
-        
-        for(int i = 0; i < 100; i++) x[i] = false;
-        for(int i = a; i < b; i++) {
-        	x[i] = true;
-        }
-        for(int i = c; i < d; i++) {
-        	x[i] = true;
+        int[][] cards = new int[4][14];
+        for (int i = 0; i < 4; i++) {
+        	cards[i][0] = 13;
+        	for (int j = 1; j < 14; j++) {
+        		cards[i][j] = 0;
+        	}
         }
         
-        int ans = 0;
-        for(int i = 0; i < 100; i++) {
-        	if (x[i]) ans++;
+        for (int i = 0; i < str.length() / 3; i++) {
+        	int shape = -1, num;
+        	char x = str.charAt(3 * i);
+        	switch(x) {
+        	case 'P':
+        		shape = 0;
+        		break;
+        	case 'K':
+        		shape = 1;
+        		break;
+        	case 'H':
+        		shape = 2;
+        		break;
+        	case 'T':
+        		shape = 3;
+        		break;
+        	}
+        	
+        	num = 10 * (str.charAt(3 * i + 1) - '0') + str.charAt(3 * i + 2) - '0';
+        	if (cards[shape][num] == 1) {
+        		System.out.println("GRESKA");
+        		return;
+        	}
+        	cards[shape][num]++;
+        	cards[shape][0]--;
         }
-        System.out.println(ans);
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < 4; i++) {
+        	sb.append(Integer.toString(cards[i][0]) + " ");
+        }
+        System.out.println(sb.toString());
+        
     }
 }

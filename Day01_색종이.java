@@ -45,9 +45,6 @@ public class main{
             	}
             }
         }
-        
-        StringBuilder sb = new StringBuilder();
-        sb.append(ans);
-        System.out.println(sb.toString());
+        System.out.println(ans);
     }
 }
