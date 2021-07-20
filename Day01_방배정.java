@@ -29,7 +29,7 @@ public class main{
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
         
-        int[] arr = new int[5];
+        int[] arr = new int[5]; //arr[5] = {1~2학년, 3~4 남, 3~4여, 5~6남, 5~6여}
         for(int i = 0; i < 5; i++) {
         	arr[i] = 0;
         }
@@ -52,7 +52,7 @@ public class main{
         
         int ans = 0;
         for (int i = 0; i < 5; i++) {
-            	ans += (arr[i] + K - 1) / K;
+            	ans += (arr[i] + K - 1) / K; // 각 그룹에 필요한 방의 개수를 계산
         }
         
         

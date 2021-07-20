@@ -27,7 +27,7 @@ public class main{
         
         int N = Integer.parseInt(br.readLine());
         
-        int[] loc = new int[11];
+        int[] loc = new int[11]; // loc[i]; i번 소의 위치, -1 : 아직 위치가 관찰되지 않은 소, 0 : 왼쪽에서 관찰된 소, 1 : 오른쪽에서 관찰된 소
         for (int i = 0; i < 11; i++) {
         	loc[i] = -1;
         }
@@ -37,6 +37,7 @@ public class main{
         	st = new StringTokenizer(br.readLine());
             int cownum = Integer.parseInt(st.nextToken());
             int cowloc = Integer.parseInt(st.nextToken());
+            // 이전에 관찰된 위치와 다른 위치에서 관찰될 경우, 길을 건넌 횟수를 추가
             if ((loc[cownum] != -1) && (loc[cownum] != cowloc)) {
             	ans++;
             }

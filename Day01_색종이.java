@@ -26,7 +26,7 @@ public class main{
 //        String str3 = st.nextToken();
         
         int n = Integer.parseInt(br.readLine());
-        boolean[][] x = new boolean[100][100];
+        boolean[][] x = new boolean[100][100]; // x[i][j]; {(x, y) | i <= x < i + 1, j <= y < j + 1}인 영역에 색종이가 놓여있는지 여부
         for (int i = 0; i < 100; i++) {
         	for (int j = 0; j < 100; j++) x[i][j] = false;
         }

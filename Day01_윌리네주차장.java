@@ -30,7 +30,7 @@ public class main{
         int B = Integer.parseInt(st.nextToken());
         int C = Integer.parseInt(st.nextToken());
 
-        int[] cars = new int[100];
+        int[] cars = new int[100]; // cars[i]; i <= t < i + 1인 시간에 주차되어있는 차의 수
         for (int i = 0; i < 100; i++) {
         	cars[i] = 0;
         }
@@ -55,6 +55,7 @@ public class main{
         }
         
         int ans = 0;
+        //i <= t < i + 1인 시간에 부과되는 금액 계산
         for (int i = 0; i < 100; i++) {
         	switch(cars[i]) {
         	case 1:

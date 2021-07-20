@@ -8,30 +8,14 @@ public class main{
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
-//        // 입력 형태 : "N"
-//        int N = Integer.parseInt(br.readLine());
-//        
-//        // 입력 형태 : "N1 N2" 
-//        st = new StringTokenizer(br.readLine());
-//        int N1 = Integer.parseInt(st.nextToken());
-//        int N2 = Integer.parseInt(st.nextToken());
-//        
-//        // 입력 형태 : "string"
-//        String str = br.readLine();
-//        
-//        // 입력 형태 : "string1 string2 string3"
-//        st = new StringTokenizer(br.readLine());
-//        String str1 = st.nextToken();
-//        String str2 = st.nextToken();
-//        String str3 = st.nextToken();
         
         String str = br.readLine();
         
-        int[][] cards = new int[4][14];
+        int[][] cards = new int[4][14]; 
         for (int i = 0; i < 4; i++) {
-        	cards[i][0] = 13;
+        	cards[i][0] = 13; // cards[i][0]; 게임판 위에 존재하지 않는 i모양의 카드 수
         	for (int j = 1; j < 14; j++) {
-        		cards[i][j] = 0;
+        		cards[i][j] = 0; // cards[i][j]; 게임판 위에 있는 i모양의 j번 카드의 수
         	}
         }
         
@@ -54,6 +38,7 @@ public class main{
         	}
         	
         	num = 10 * (str.charAt(3 * i + 1) - '0') + str.charAt(3 * i + 2) - '0';
+        	// 게임판 위에 같은 카드가 2장 이상 있는 경우
         	if (cards[shape][num] == 1) {
         		System.out.println("GRESKA");
         		return;
