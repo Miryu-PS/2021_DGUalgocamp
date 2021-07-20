@@ -20,25 +20,28 @@ public class main {
 				arr[j]++;
 			}
 		}
-		for (int i = 1; i < MAXN; i++) // answer에 한 명을 해고하기 전의 안전한 시간을 저장
-		{
-			if (arr[i] != 0)
-				answer++;
-		}
 
-		int mini = 1987654321;
-		for (int i = 0; i < N; i++) // 해고하였을 때 안전한 시간이 가장 적게 줄어드는 사람을 골라 해고
+		for (int i = 0; i < N; i++) // i번 사람을 해고했을 때 안전한 시간을 계산
 		{
-			int tmp = 0; // i번 직원을 해고하였을 때 줄어드는 안전한 시간
-			for (int j = brr[i][0]; j < brr[i][1]; j++) // i번 직원이 일하는 시간대에
-			{
-				if (arr[j] == 1)
-					tmp++; // 만약 혼자 일하고 있었다면, i번 직원이 해고되면 안전한 시간이 줄어든다.
+			// i번 직원을 해고하면 i번 직원의 근무시간에는 라이프가드의 수가 1 줄어든다.
+			for (int j = brr[i][0]; j < brr[i][1]; j++)
+				arr[j]--;
+
+			int safetime = 0; // 안전한 시간을 count 해주자.
+			for (int j = 0; j < MAXN; j++) {
+				if (arr[j] != 0) // 일하고 있는 라이프가드의 수가 0이 아니라면 이 시간대는 안전한 시간이다.
+					safetime++;
 			}
-			if (tmp < mini)
-				mini = tmp;
+
+			// 안전한 시간의 최대값을 구한다.
+			if (answer < safetime)
+				answer = safetime;
+
+			// arr 배열을 다시 원래대로
+			for (int j = brr[i][0]; j < brr[i][1]; j++)
+				arr[j]++;
 		}
 
-		System.out.println(answer - mini);
+		System.out.println(answer);
 	}
 }
