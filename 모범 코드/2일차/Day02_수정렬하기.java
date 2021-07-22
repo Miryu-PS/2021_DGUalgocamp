@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class Day01_10_4666 {
+public class main {
 	public static int[] arr;
 	public static int[] tmp;
 
@@ -31,11 +31,11 @@ public class Day01_10_4666 {
 		int mid = (start + end) / 2;
 		mergesort(start, mid); // 왼쪽 절반 정렬
 		mergesort(mid + 1, end); // 오른쪽 절반 정렬
-		//임시 배열 tmp에 arr[start~end]을 정렬한 결과를 저장 
+		//임시 배열 tmp에 arr[start~end]을 정렬한 결과를 저장
 		int L = start; // 왼쪽 분할의 첫 인덱스
 		int R = mid + 1; // 오른쪽 분할의 첫 인덱스
 		for (int i = start; i <= end; i++) {
-			if (L > mid) // 왼쪽 분할에 남은 원소가 없는 경우 
+			if (L > mid) // 왼쪽 분할에 남은 원소가 없는 경우
 				tmp[i] = arr[R++];
 			else if (R > end) // 오른쪽 분할에 남은 원소가 없는 경우
 				tmp[i] = arr[L++];
@@ -48,7 +48,7 @@ public class Day01_10_4666 {
 			arr[i] = tmp[i];
 		}
 	}
-	
+
 	public static void main_(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
