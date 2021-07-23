@@ -1,3 +1,13 @@
+/*
+옮기는 부분을 다음과 같이 구현할 수 있습니다.
+import java.lang.Math;
+...
+int totalmilk = milk[i%3]+milk[(i+1)%3];
+milk[(i+1)%3] = Math.min(totalmilk, bottle[(i+1)%3]);
+milk[i%3] = totalmilk - milk[(i+1)%3];
+
+*/
+
 import java.util.Scanner;
 
 public class main {
@@ -11,7 +21,7 @@ public class main {
             bottle[i]=sc.nextInt();
             milk[i]=sc.nextInt();
         }
-        
+
         for(int i=0; i<100; i++) {
             if(bottle[(i+1)%3]>=milk[i%3]+milk[(i+1)%3]) {
                 milk[(i+1)%3]=milk[i%3]+milk[(i+1)%3];

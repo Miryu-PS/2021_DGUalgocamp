@@ -1,3 +1,4 @@
+//전체의 최소값과 최대값 사이만 탐색하셨네요. 좋은 탐색 범위 줄이기입니다.
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

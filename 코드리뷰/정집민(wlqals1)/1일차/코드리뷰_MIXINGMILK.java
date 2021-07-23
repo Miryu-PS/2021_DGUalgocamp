@@ -1,3 +1,12 @@
+/*
+pour 함수에서 붓는 과정을 다음과 같이 구현할 수도 있습니다.
+import java.lang.Math;
+...
+int totalmilk = from[1]+to[1];
+to[1] = Math.min(totalmilk, to[0]);
+from[1] = totalmilk - to[1];
+*/
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +21,7 @@ public class main {
             bucket[i][0] = Integer.parseInt(st.nextToken());
             bucket[i][1] = Integer.parseInt(st.nextToken());
         }
-        
+
         for (int i = 0; i < 100; i++) {
             pour(bucket[i%3],bucket[(i+1)%3]);
         }
@@ -22,7 +31,7 @@ public class main {
         sb.append(bucket[2][1]).append('\n');
         System.out.println(sb);
     }
-    
+
     static void pour(int[] from, int[] to) {
         boolean flooded = false;
         if(from[1]+to[1]>to[0]) {
@@ -31,7 +40,7 @@ public class main {
         int toMilk = flooded?to[0]:from[1]+to[1];
         from[1] = flooded?from[1]+to[1]-to[0]:0;
         to[1] = toMilk;
-        
+
     }
 
 }

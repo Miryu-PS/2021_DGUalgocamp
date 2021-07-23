@@ -1,3 +1,13 @@
+/*
+pourmilk 함수에서 옮기는 부분은 이렇게도 구현 가능합니다.
+import java.lang.Math;
+...
+int totalmilk = Bucket[from]+Bucket[to]; // 두 양동이의 우유량의 합은 불변입니다.
+Bucket[to] = Math.min(totalmilk, Vol[to]); // 옮긴 후 to 의 우유량은 totalmilk와 to의 용량의 최소값이 됩니다.
+Bucket[from] = totalmilk - Bucket[to]; // 총 우유량에서 옮긴 후의 to의 우유량을 빼서 옮긴 후의 from의 우유량을 게산할 수 있습니다.
+
+*/
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

@@ -1,3 +1,10 @@
+/*
+-1을 초기값으로 두어 나타나지 않음을 표현한 것은 좋은 아이디어입니다.
+Java.util.Arrays를 import 하면
+int[] cow = new int[10];
+Arrays.fill(cow, -1); 을 통해 배열을 -1로 초기화할 수 있습니다.
+*/
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;

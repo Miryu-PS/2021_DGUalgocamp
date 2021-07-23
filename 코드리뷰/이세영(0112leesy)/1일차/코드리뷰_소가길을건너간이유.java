@@ -1,3 +1,6 @@
+/*
+관측되지 않은 경우를 고려하여 location의 초기값을 -1로 설정하셨네요. 좋은 구현입니다.
+*/
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

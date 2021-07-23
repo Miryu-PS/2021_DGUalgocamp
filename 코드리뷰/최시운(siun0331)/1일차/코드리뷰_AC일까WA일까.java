@@ -1,3 +1,9 @@
+/*
+배열의 1번 위치나 마지막 위치에 C가 있어도 가운데에서 C가 나온다면 AC를 출력해야 할 수 있습니다!
+대문자 B가 검사되고 있지 않은 것으로 보입니다. 대문자 B = 66의 경우에도 answer = "WA"로 바꿔주어야 합니다.
+*/
+
+
 import java.io.*;
 import java.util.Stack;
 import java.util.StringTokenizer;

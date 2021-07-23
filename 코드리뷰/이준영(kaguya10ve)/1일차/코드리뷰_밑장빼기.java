@@ -1,3 +1,16 @@
+/*
+(int)(str.charAt(i+1))*10-480+(int)(str.charAt(i+2))-48 를 if문으로 분기되기 전에 미리 변수를 만들어서 저장해 놓으면 코드를 간소화할 수 있습니다.
+이 값을 이용해서 GRESKA도 검사 가능합니다.
+
+for(int i=0; i<str.length(); i+=3) {
+    int value = (int)(str.charAt(i+1))*10-480+(int)(str.charAt(i+2))-48;
+    if(str.charAt(i)=='P') {
+        P[value]++;
+        if(P[value] >= 2) isGRESKA = true;
+    }
+    ...
+}
+*/
 import java.util.Scanner;
 
 public class main {
@@ -10,7 +23,7 @@ public class main {
         int K[]=new int[13];
         int H[]=new int[13];
         int T[]=new int[13];
-        
+
         for(int i=0; i<str.length(); i+=3) {
             if(str.charAt(i)=='P') {
                 P[(int)(str.charAt(i+1))*10-480+(int)(str.charAt(i+2))-48]++;
@@ -27,7 +40,7 @@ public class main {
         int counth=13;
         int countt=13;
         int count=0;
-        
+
         for(int i=0; i<13; i++) {
             if(P[i]==1) {
                 countp--;
@@ -61,7 +74,7 @@ public class main {
         if(count==0) {
             System.out.println(countp+" "+countk+" "+counth+" "+countt);
         }
-        
+
     }
 
 }

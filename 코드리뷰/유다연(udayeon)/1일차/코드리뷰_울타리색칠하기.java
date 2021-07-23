@@ -1,3 +1,9 @@
+/*
+두 구간이 겹치지 않을 조건 잘 작성해주셨습니다.
+max와 min은 java.lang.Math 를 import 해주시면
+int min = Math.min(a,c);
+int max = Math.max(b,d); 와 같이 사용 가능합니다.
+*/
 import java.util.Scanner;
 
 public class main {
@@ -8,7 +14,7 @@ public class main {
         b = scanner.nextInt();
         c = scanner.nextInt();
         d = scanner.nextInt();
-        
+
         int min, max;
         int sum = 0;
         if(b<c || d<a){
@@ -22,7 +28,7 @@ public class main {
         else{
             min = c;
         }
-        
+
         if(b<d){
             max = d;
         }
@@ -31,9 +37,9 @@ public class main {
         }
             sum = max-min;
         }
-        
+
         System.out.print(sum);
-        
+
         scanner.close();
     }
 }

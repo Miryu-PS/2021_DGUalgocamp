@@ -1,3 +1,6 @@
+/*
+contains 함수와 replace 함수 이용해서 잘 해결해주셨습니다!
+*/
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
