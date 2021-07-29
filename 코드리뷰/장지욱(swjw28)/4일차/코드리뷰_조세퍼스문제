@@ -1,0 +1,35 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.*;
+
+public class main {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Queue<Integer> queue = new LinkedList<>();
+        StringBuilder sb = new StringBuilder();
+        
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        
+        for(int i = 1; i <= n; i++) {
+            queue.add(i);
+        }
+        int cnt = 0;
+        while(!queue.isEmpty()) {
+            int x = queue.poll();
+            cnt++;
+            
+            if(cnt == m) {
+                sb.append(x).append(" ");
+                cnt = 0;
+            }
+            else {
+                queue.add(x);
+            }
+        }
+        System.out.println(sb);
+    }
+}
